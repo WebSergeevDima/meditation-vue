@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import IconLogo from "@/Icons/IconLogo.vue";
+import MeditationList from "@/components/MeditationList.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import IconLogo from "@/Icons/IconLogo.vue";
   </header>
   <main>
     Привет!
+    <MeditationList />
   </main>
 </template>
 

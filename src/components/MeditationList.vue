@@ -3,7 +3,7 @@
     <div class="user-info">
       <img src="/public/user-logo.png" alt="Пользователь" class="logo"/>
       <div>
-        <h1 class="title">Добро пожаловать, Наталья!</h1>
+        <h1 class="title">Добро пожаловать, {{storeProfile?.profile?.username}}!</h1>
         <p class="desc">Как вы сегодня себя чувствуете?</p>
       </div>
       <Feels />
@@ -20,11 +20,14 @@
   import {useMeditationStore} from "@/stores/meditation.store.ts";
   import MeditationListItem from "@/components/MeditationListItem.vue";
   import Feels from "@/components/Feels.vue";
+  import {useProfileStore} from "@/stores/profile.store.ts";
 
   const storeMeditation = useMeditationStore()
+  const storeProfile = useProfileStore()
 
   onMounted(() => {
     storeMeditation.fetchMeditations()
+    storeProfile.fetchProfile()
   })
 </script>
 

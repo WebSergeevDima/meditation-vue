@@ -3,22 +3,8 @@ import './assets/main.css'
 import {createApp} from 'vue'
 import App from './App.vue'
 import {createPinia} from "pinia";
-import {createRouter, createWebHistory} from "vue-router";
+import {router} from "@/routes.ts";
 
-const router = createRouter({
-    routes: [{
-        path: '/',
-        name: 'main',
-        component: () => import('./views/HomeView.vue')
-    },
-        {
-            path: '/stats',
-            name: 'stats',
-            component: () => import('./views/Stats.vue')
-        }
-    ],
-    history: createWebHistory()
-})
 const pinia = createPinia()
 
 createApp(App)

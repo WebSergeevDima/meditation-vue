@@ -10,10 +10,10 @@
       Статистика
     </RouterLink>
     <div class="line"></div>
-    <RouterLink to="/test" class="link" active-class="active">
+    <div class="link" @click="logout">
       <IconDoor/>
       Выход
-    </RouterLink>
+    </div>
   </div>
 </template>
 
@@ -21,6 +21,20 @@
 import IconPlay from "@/Icons/IconPlay.vue";
 import IconStats from "@/Icons/IconStats.vue";
 import IconDoor from "@/Icons/IconDoor.vue";
+import {useAuthStore} from "@/stores/auth.store.ts";
+import {useRouter} from "vue-router";
+
+const router = useRouter()
+const storeAuth = useAuthStore()
+
+function logout() {
+  storeAuth.clearToken()
+
+  router.push({
+    name: 'auth'
+  })
+
+}
 </script>
 
 <style scoped>

@@ -41,3 +41,4 @@ router.beforeEach((to, from) => {
         }
     })
 })
+

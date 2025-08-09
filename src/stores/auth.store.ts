@@ -8,7 +8,7 @@ export const useAuthStore = defineStore('auth', () => {
     const AUTH_TOKEN_STORE = 'meditation-auth-token'
 
     const router = useRouter()
-    const user = ref<User>()
+    const user = ref<User>([])
     const token = ref<string>()
     const initialValue = localStorage.getItem(AUTH_TOKEN_STORE)
 
@@ -25,7 +25,7 @@ export const useAuthStore = defineStore('auth', () => {
 
     async function fetchLogin(params: UserLogin) {
         const {data} = await http.post<LoginResponse>(API_ROUTES.login, params)
-        console.log('data: ',data)
+        console.log('params: ',params)
 
         user.value = data.data.user
         token.value = data.data.token

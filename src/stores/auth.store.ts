@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {computed, ref} from "vue";
 import {API_ROUTES, http} from "@/api.ts";
-import type {LoginResponse, RegistrationResponse, User, UserLogin} from "@/interfaces/auth.ts";
+import type {LoginResponse, RegistrationResponse, User, UserLogin, UserRegistration} from "@/interfaces/auth.ts";
 import {useRouter} from "vue-router";
 
 export const useAuthStore = defineStore('auth', () => {
@@ -39,7 +39,7 @@ export const useAuthStore = defineStore('auth', () => {
         //user.value = data.data
     }
 
-    async function fetchRegistration(params) {
+    async function fetchRegistration(params: UserRegistration) {
         const {data} = await http.post<RegistrationResponse>(API_ROUTES.registration, params)
 
         if(data.status == 'success') {

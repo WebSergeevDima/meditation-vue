@@ -36,7 +36,7 @@ export const router = createRouter({
 router.beforeEach((to, from) => {
     router.beforeEach((to, from) => {
         const storeAuth = useAuthStore()
-        if (!storeAuth.getToken && to.name !== 'auth') {
+        if (!storeAuth.getToken && to.name !== 'auth' && to.name !== 'reg') {
             return { name: 'auth' }
         }
     })

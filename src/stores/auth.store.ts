@@ -8,7 +8,7 @@ export const useAuthStore = defineStore('auth', () => {
     const AUTH_TOKEN_STORE = 'meditation-auth-token'
 
     const router = useRouter()
-    const user = ref<User>([])
+    const user = ref<User>()
     const token = ref<string>()
     const initialValue = localStorage.getItem(AUTH_TOKEN_STORE)
 

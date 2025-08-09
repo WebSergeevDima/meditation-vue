@@ -9,12 +9,12 @@ export const router = createRouter({
             component: () => import('./views/NotFoundView.vue')
         },
         {
-          path: '/login',
+            path: '/login',
             name: 'auth',
             component: () => import('./views/LoginView.vue')
         },
         {
-          path: '/registration',
+            path: '/registration',
             name: 'reg',
             component: () => import('./views/RegistrationView.vue')
         },
@@ -34,11 +34,9 @@ export const router = createRouter({
 })
 
 router.beforeEach((to, from) => {
-    router.beforeEach((to, from) => {
-        const storeAuth = useAuthStore()
-        if (!storeAuth.getToken && to.name !== 'auth' && to.name !== 'reg') {
-            return { name: 'auth' }
-        }
-    })
+    const storeAuth = useAuthStore()
+    if (!storeAuth.getToken && to.name !== 'auth' && to.name !== 'reg') {
+        return {name: 'auth'}
+    }
 })
 

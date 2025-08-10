@@ -32,4 +32,16 @@ export interface UserData {
     user: User
 }
 
+export interface UserProfile {
+    email: string;
+    id: number;
+    last_login_at: string; // ISO дата-время с часовым поясом
+    username: string;
+}
 
+export interface UserProfileResponse {
+    data: {
+        user: User;
+    };
+    status: 'success' | 'error';
+}

@@ -26,9 +26,13 @@ export const router = createRouter({
         {
             path: '/stats',
             name: 'stats',
-            component: () => import('./views/Stats.vue')
-        }
-        ,
+            component: () => import('./views/StatsView.vue')
+        },
+        {
+            path: '/timer/:id',
+            name: 'timer',
+            component: () => import('./views/TimerView.vue')
+        },
     ],
     history: createWebHistory(),
 })

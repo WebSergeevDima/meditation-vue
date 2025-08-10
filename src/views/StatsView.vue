@@ -2,14 +2,13 @@
   <div>
     <Header />
     <main class="main">
-      <div>
-        Статистика!
-      </div>
+      <MeditationList />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
+import MeditationList from "@/components/MeditationList.vue";
 import Header from "@/components/Header.vue";
 </script>
 

@@ -6,6 +6,7 @@ export const API_ROUTES = {
     login: 'auth/login',
     profile: 'profile',
     feel: 'stats',
+    stats: 'stats'
 };
 
 export const http = axios.create({
@@ -25,7 +26,6 @@ httpAuth.interceptors.request.use((config) => {
         config.headers = config.headers || {};
         config.headers.Authorization = `Bearer ${token}`;
     } else {
-        // Важно: не отправлять пустой/старый заголовок
         if (config.headers && 'Authorization' in config.headers) {
             delete config.headers.Authorization;
         }

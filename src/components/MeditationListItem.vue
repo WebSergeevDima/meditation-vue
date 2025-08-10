@@ -4,7 +4,7 @@
     <div class="card-descr">
       {{item.description}}
     </div>
-    <button class="card-btn">
+    <button class="card-btn" @click="goToTimer(item.id)">
       Начать
       <IconArrowWithRound />
     </button>
@@ -15,9 +15,18 @@
 <script setup lang="ts">
 import IconArrowWithRound from "@/Icons/IconArrowWithRound.vue";
 import type { Meditation } from "@/interfaces/meditation";
+import {useRouter} from "vue-router";
 
 const {item} = defineProps<{ item: Meditation }>()
 
+const router = useRouter()
+
+function goToTimer(id: number) {
+    router.push({
+      name: 'timer',
+      params: { id},
+    })
+}
 </script>
 
 <style scoped>

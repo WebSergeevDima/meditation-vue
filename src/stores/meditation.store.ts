@@ -11,8 +11,13 @@ export const useMeditationStore = defineStore('meditation', () => {
         meditations.value = data.data.meditations
     }
 
+    function getMeditationById(id:number) {
+        return meditations.value.find(item => item.id == id)
+    }
+
     return {
         meditations,
         fetchMeditations,
+        getMeditationById
     }
 })

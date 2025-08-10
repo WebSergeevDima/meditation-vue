@@ -1,28 +1,13 @@
 <template>
   <div class="feels">
-    <div class="feel" @click="updateFeel('feel1')">
+    <div v-for="item in FEELS_LIST" class="feel" @click="updateFeel(item.type)">
       <div class="feel-icon">
-        <IconFeelCalm/>
+        <IconFeelCalm v-if="item.type == 'feeling_calm'" />
+        <IconFeelRelax v-if="item.type == 'feeling_relax'" />
+        <IconFeelFocus v-if="item.type == 'feeling_focus'" />
+        <IconFeelAnxi v-if="item.type == 'feeling_anxiety'" />
       </div>
-      <div class="feel-text" >Спокойно</div>
-    </div>
-    <div class="feel" @click="updateFeel('feel2')">
-      <div class="feel-icon">
-        <IconFeelRelax />
-      </div>
-      <div class="feel-text">Расслабленно</div>
-    </div>
-    <div class="feel" @click="updateFeel('feel3')">
-      <div class="feel-icon">
-        <IconFeelFocus/>
-      </div>
-      <div class="feel-text">Фокусировано</div>
-    </div>
-    <div class="feel" @click="updateFeel('feel4')">
-      <div class="feel-icon">
-        <IconFeelAnxi />
-      </div>
-      <div class="feel-text">Тревожно</div>
+      <div class="feel-text">{{item.name}}</div>
     </div>
   </div>
 </template>
@@ -33,6 +18,20 @@ import IconFeelRelax from "@/Icons/IconFeelRelax.vue";
 import IconFeelFocus from "@/Icons/IconFeelFocus.vue";
 import IconFeelAnxi from "@/Icons/IconFeelAnxi.vue";
 import {useFeelsStore} from "@/stores/feels.store.ts";
+
+const FEELS_LIST = [{
+  type: 'feeling_calm',
+  name: 'Спокойно'
+},{
+  type: 'feeling_relax',
+  name: 'Расслабленно'
+},{
+  type: 'feeling_focus',
+  name: 'Фокусировано'
+},{
+  type: 'feeling_anxiety',
+  name: 'Тревожно'
+}]
 
 const storeFeels = useFeelsStore()
 function updateFeel(feel: string) {

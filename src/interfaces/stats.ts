@@ -23,3 +23,19 @@ export interface StatResponse {
     message: string;
     status: 'success' | 'error';
 }
+
+export interface StatsSummary {
+    total_anxiety: number;
+    total_calm: number;
+    total_focus: number;
+    total_minutes: number;
+    total_relax: number;
+}
+
+export interface StatsListResponse {
+    data: {
+        stats: Stat[];
+        summary: StatsSummary;
+    };
+    status: 'success' | 'error';
+}

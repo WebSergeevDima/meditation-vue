@@ -2,14 +2,14 @@
   <div>
     <Header />
     <main class="main">
-      <MeditationList />
+      <Stats />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-import MeditationList from "@/components/MeditationList.vue";
 import Header from "@/components/Header.vue";
+import Stats from "@/components/Stats.vue";
 </script>
 
 <style scoped>

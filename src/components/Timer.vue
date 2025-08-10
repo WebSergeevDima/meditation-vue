@@ -87,7 +87,7 @@ function stopTimer() {
   })
 }
 
-function secondsToMinutes(seconds) {
+function secondsToMinutes(seconds: number) {
   return Math.floor(seconds / 60);
 }
 
